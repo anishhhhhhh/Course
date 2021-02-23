@@ -24,6 +24,7 @@ function App() {
   for (let i = 0; i < addSubject; i++) {
     subjectArray.push(
       <AddInput
+        id = {addSubject}
         btnName="Add Lesson"
         deleteSubjectHandler={deleteSubjectHandler}
         addLessonHandler={addLessonHandler}
@@ -43,6 +44,7 @@ function App() {
   for (let i = 0; i < addLesson; i++) {
     lessonArray.push(
       <AddInput
+        id = {addSubject+`.lesson`+i}
         btnName="Add Lecture"
         deleteSubjectHandler={deleteLessonHandler}
         addLectureHandler={addLectureHandler}
@@ -56,7 +58,7 @@ function App() {
 
   const lectureArray = [];
   for (let i = 0; i < addLecture; i++) {
-    lectureArray.push(<AddInput deleteLectureHandler={deleteLectureHandler} />);
+    lectureArray.push(<AddInput id={addSubject+`.lesson`+i+`.lecture`+i} deleteLectureHandler={deleteLectureHandler} />);
   }
 
   let finalPrice = 0;
@@ -67,101 +69,71 @@ function App() {
 
   return (
     <div className="App">
-      <div class="container my-5">
+      <div className="container my-5">
         <form action="/course/addCourse" method="POST">
           {/* {% csrf_token %} */}
-          <div class="form-group">
-            <label for="id">Course Id</label>
-            <input
-              type="text"
-              class="form-control"
-              id="id"
-              placeholder="Enter Course Id"
-              name="id"
-            />
+          <div className="form-group">
+            <label htmlFor="id">Course Id</label>
+            <input type="text" className="form-control" id="id" placeholder="Enter Course Id" name="id"/>
           </div>
-          <div class="form-group">
-            <label for="name">Course Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="name"
-              placeholder="Enter Course Name"
-              name="name"
-            />
+          <div className="form-group">
+            <label htmlFor="name">Course Name</label>
+            <input type="text" className="form-control" id="name" placeholder="Enter Course Name" name="name" />
           </div>
-          <div class="form-group">
-            <label for="short">Short Description</label>
-            <input
-              type="text"
-              class="form-control"
-              id="short"
-              placeholder="Enter Course Short Description"
-              name="short"
-            />
+          <div className="form-group">
+            <label htmlFor="short">Short Description</label>
+            <input type="text" className="form-control" id="short" placeholder="Enter Course Short Description" name="short" />
           </div>
-          <div class="form-group">
-            <label for="long">Long Description</label>
-            <input
-              type="text"
-              class="form-control"
-              id="long"
-              placeholder="Enter Course Long Description"
-              name="long"
-            />
+          <div className="form-group">
+            <label htmlFor="long">Long Description</label>
+            <input type="text" className="form-control" id="long" placeholder="Enter Course Long Description" name="long" />
           </div>
-          <div class="form-group">
-            <label for="image">Image Url</label>
-            <input
-              type="text"
-              class="form-control"
-              id="image"
-              placeholder="Enter Image Url"
-              name="image"
-            />
+          <div className="form-group">
+            <label htmlFor="image">Image Url</label>
+            <input type="text" className="form-control" id="image" placeholder="Enter Image Url" name="image"/>
           </div>
-          <div class="form-group">
-            <label for="difficulty">Difficulty Level</label>
-            <select class="form-control" id="difficulty" name="difficulty">
+          <div className="htmlForm-group">
+            <label htmlFor="difficulty">Difficulty Level</label>
+            <select className="form-control" id="difficulty" name="difficulty">
               <option value="beginner">Beginner</option>
               <option value="intermediate">Intermediate</option>
               <option value="expert">Expert</option>
             </select>
           </div>
-          <div class="form-group">
-            <label for="age">Age Group</label>
-            <div class="form-row">
-              <div class="col-md-3">From: </div>
-              <div class="col-md-9">To: </div>
-              <div class="col-md-3">
+          <div className="form-group">
+            <label htmlFor="age">Age Group</label>
+            <div className="form-row">
+              <div className="col-md-3">From: </div>
+              <div className="col-md-9">To: </div>
+              <div className="col-md-3">
                 <input type="number" name="lowAge" id="age" />
               </div>
-              <div class="col-md-9">
+              <div className="col-md-9">
                 <input type="number" name="highAge" id="age" />
               </div>
             </div>
           </div>
-          <div class="form-group">
-            <label for="board">Board</label>
-            <select class="form-control" id="board" name="board">
+          <div className="htmlForm-group">
+            <label htmlFor="board">Board</label>
+            <select className="form-control" id="board" name="board">
               <option value="CBSE">CBSE</option>
               <option value="ICSE">ICSE</option>
               <option value="StateBoard">State Board</option>
             </select>
           </div>
-          <div class="form-group">
-            <label for="instruction">Mode of Instruction</label>
-            <select class="form-control" id="instruction" name="instruction">
+          <div className="htmlForm-group">
+            <label htmlFor="instruction">Mode of Instruction</label>
+            <select className="form-control" id="instruction" name="instruction">
               <option value="english">English</option>
               <option value="hindi">Hindi</option>
               <option value="marathi">Marathi</option>
             </select>
           </div>
-          <div class="form-group">
-            <label for="actual">Actual Price</label>
+          <div className="form-group">
+            <label htmlFor="actual">Actual Price</label>
             <input
               type="number"
-              class="form-control"
+              className="form-control"
               id="actual"
               placeholder="Enter Course Actual Price"
               name="actual"
@@ -169,60 +141,39 @@ function App() {
                 setPrice(e.target.value);
               }}
               value={price}
-              // value="0"
-              // oninput="price_aft_disc()"
             />
           </div>
-          <div class="form-group">
-            <label for="discount">Discount</label>
+          <div className="form-group">
+            <label htmlFor="discount">Discount</label>
             <input
               type="number"
-              class="form-control"
+              className="form-control"
               id="discount"
               placeholder="Enter Course Discount"
               name="discount"
               onChange={handleFinalPrice}
               value={discount}
-              // value="0"
-              // oninput="price_aft_disc()"
             />
           </div>
-          <div class="form-group">
-            <label for="priafdis">Price After Discount</label>
+          <div className="form-group">
+            <label htmlFor="priafdis">Price After Discount</label>
             <input
               type="number"
-              class="form-control"
+              className="form-control"
               id="priafdis"
               placeholder="Course Price After Discount"
               name="priafdis"
               value={finalPrice}
-              readonly
+              readOnly
             />
           </div>
-          <div class="form-row my-2">
-            <div class="sub col-md-4" id="sub">
-              <a
-                class="btn btn-danger"
-                id="subject"
-                onClick={addSubjectHandler}
-              >
-                Add Subject
-              </a>
-              {subjectArray}
-            </div>
-            <div class="lec col-md-4" id="less">
-              <p>Lesson</p>
-              {lessonArray}
-            </div>
-            <div class="less col-md-4" id="lec">
-              <p>Lecture</p>
-              {lectureArray}
-            </div>
+          <div className="form-row my-2">
+            <div className="sub col-md-4" id="sub"><a className="btn btn-danger" id="subject" onClick={addSubjectHandler}>Add Subject
+            </a>{subjectArray}</div>
+            <div className="lec col-md-4" id="less"><p>Lesson</p>{lessonArray}</div>
+            <div className="less col-md-4" id="lec"><p>Lecture</p>{lectureArray}</div>
           </div>
-
-          <button class="btn btn-danger" type="submit">
-            Submit
-          </button>
+          <button className="btn btn-danger" type="submit">Submit</button>
         </form>
       </div>
     </div>

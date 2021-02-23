@@ -1,0 +1,68 @@
+{
+    content: {
+        subject1:[
+        {
+            lesson1: [
+            {
+                lecture1: {
+                    name: 'lect_name',
+                    duration: '2:00'
+                },
+                lecture2: {
+                    name: 'lect_name',
+                    duration: '2:00'
+                }
+                lecture3: {
+                    name: 'lect_name',
+                    duration: '2:00'
+                }
+            },
+            lesson2: {
+                lecture1: {
+                    name: 'lect_name',
+                    duration: '2:00'
+                },
+                lecture2: {
+                    name: 'lect_name',
+                    duration: '2:00'
+                }
+                lecture3: {
+                    name: 'lect_name',
+                    duration: '2:00'
+                }
+            }],
+        }],
+        subject2:[
+        {
+            lesson1: [
+            {
+                lecture1: {
+                    name: 'lect_name',
+                    duration: '2:00'
+                },
+                lecture2: {
+                    name: 'lect_name',
+                    duration: '2:00'
+                }
+                lecture3: {
+                    name: 'lect_name',
+                    duration: '2:00'
+                }
+            },
+            lesson2: {
+                lecture1: {
+                    name: 'lect_name',
+                    duration: '2:00'
+                },
+                lecture2: {
+                    name: 'lect_name',
+                    duration: '2:00'
+                }
+                lecture3: {
+                    name: 'lect_name',
+                    duration: '2:00'
+                }
+            }],
+        }]
+    }
+}
